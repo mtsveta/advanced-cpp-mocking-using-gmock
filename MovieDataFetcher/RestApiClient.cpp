@@ -19,11 +19,6 @@ size_t curl_write(void *ptr, size_t size, size_t nmemb, void *stream)
 	return size*nmemb;
 }
 
-size_t writeFunction(void *ptr, size_t size, size_t nmemb, std::string* data) {
-	data->append((char*) ptr, size * nmemb);
-	return size * nmemb;
-}
-
 string RestApiClient::HttpGet(string& url)
 {
 

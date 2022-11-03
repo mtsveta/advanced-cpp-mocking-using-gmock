@@ -13,14 +13,3 @@ TEST(TheMovieDbRepositoryTests, FindMovieData_ApiReturnsEmptyString_ThrowExcepti
 
 	ASSERT_THROW( repository.FindMovieData("movie name"), MovieNotFoundException );
 }
-
-TEST(TheMovieDbRepositoryTests, FindMovieData_ApiReturnsStringWithoutMovie_ThrowException)
-{
-	TheMovieDbDataFactory factory;
-	FakeRestApiClient fakeClient;
-
-	TheMovieDbRepository repository("api-key", factory, fakeClient);
-
-	ASSERT_THROW(
-		repository.FindMovieData("movie name"), MovieNotFoundException);
-}
