@@ -1,7 +1,8 @@
 #include "MetaDataProcessor.h"
 #include "MovieData.h"
-#include <fstream>
 
+// Constructor accepting `MovieMetaDataRepository` will always call
+// constructor  accepting `MovieMetaDataRepository` and `std::shared_ptr<LoggerFactory> `
 MetaDataProcessor::MetaDataProcessor(MovieMetaDataRepository& repository) : 
 	MetaDataProcessor(repository, std::make_shared<LoggerFactory>())
 {
@@ -34,6 +35,7 @@ void MetaDataProcessor::ProcessMovies(const std::vector<std::string>& movieNames
 		}
 		catch(...)
 		{
+			// Factory is called to create a logger (writing the error into the logs)
 			m_loggerFactory->CreateLogger()->LogError(movieName);
 		}
 	}

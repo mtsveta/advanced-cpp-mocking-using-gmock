@@ -3,6 +3,7 @@
 #include <fstream>
 #include <memory>
 
+// Abstract class with the virtual function
 class Logger 
 {
 public:
